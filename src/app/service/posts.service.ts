@@ -58,7 +58,8 @@ export class PostService {
     }
 
     getPost(id: number) {
-      fetch("http://localhost:3000/posts/" + id).then((res): Promise<Post[]> => res.json())
+      return fetch("http://localhost:3000/posts/" + id).then((res): Promise<Post> => res.json())
+
 }
 
 

@@ -9,17 +9,21 @@ import { PostService } from 'src/app/service/posts.service';
   styleUrls: ['./post-detail.component.scss']
 })
 export class PostDetailComponent implements OnInit {
-  post!: any;
+  post!: Post;
   id!: number;
 
   constructor(private router: ActivatedRoute, private postSrv: PostService) { }
 
   ngOnInit():void {
-    this.post = this.router.params.subscribe(params => {
-    const id = params ['id']
-    this.post = this.postSrv.getPost(id)
+    this.router.params.subscribe(params => {
+    const id = +params ['id']
+    let r = this.postSrv.getPost(id)
+    r.then((e) => {
+      this.post = e;
+
+    })
     });
-    console.log(this.id)
+
   }
 
 }
