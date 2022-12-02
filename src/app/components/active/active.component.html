@@ -1,0 +1,11 @@
+<div class="container">
+  <div *ngFor="let post of posts">
+  <app-post-card [p]="post">
+    <button (click)="onInactivePost(post.id)" class="btn btn-primary">Disattiva</button>
+    <button class="btn btn-primary ms-3" [routerLink]="['/active', post.id]" routerLinkActive="router-link-active">Dettagli</button>
+
+  </app-post-card>
+
+  </div>
+</div>
+

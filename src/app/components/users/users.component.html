@@ -1,0 +1,6 @@
+<div class="p-2 border border-1" *ngFor="let user of users">
+  <a class="text-decoration-none text-black " [routerLink]="[user.id]" routerLinkActive="active">{{ user.nome }}</a>
+
+</div>
+<router-outlet></router-outlet>
+
